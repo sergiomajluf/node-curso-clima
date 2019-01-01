@@ -14,12 +14,12 @@ let getInfo = async(direccion) => {
     try {
         let coors = await lugar.getLugarLatLng(direccion);
         let temp = await clima.getClima(coors.lat, coors.lng);
+        console.log(temp);
         return `El clima en ${coors.direccion } es de ${temp}°C`
 
     } catch {
         return `No se pudo determinar el clima en ${direccion}`
     }
-
 
 };
 
@@ -28,16 +28,28 @@ getInfo(argv.direccion)
     .catch(e => { console.log(e); })
 
 /** 
- * Esto no es necesario porque ahora tenemos la promesa en getInfo
+Esto ya no es necesario porque ahora tenemos la promesa en getInfo
+
+//
+    getLugarLatLng(direccion) devuelve
+    { 
+        direccion: 'Puerto Varas, Los Lagos Region, Chile',
+        lat: -41.3167,
+        lng: -72.9833 
+    }
+//
+
 lugar.getLugarLatLng(argv.direccion)
     .then(resp => {
         console.log(resp);
     })
     .catch(e => console.log(e));
 
-// Puerto Varas
-// lat: -41.3167,
-// lng: -72.9833
+
+//
+    getClima(-41.3167, -72.9833) devuelve
+    14
+//
 
 clima.getClima(-41.3167, -72.9833)
     .then(temp => console.log(temp))
