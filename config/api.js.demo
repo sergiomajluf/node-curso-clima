@@ -1,0 +1,8 @@
+// Configurar tus API de Google y WeatherMaps
+const googleApi = 'AI2S5vizDSkqlBaSyiZDZSsjRSrPYO97XduoIf0';
+const weatherApi = 'c19bda9983444c057037ad4bd39c2dae';
+
+module.exports = {
+    googleApi,
+    weatherApi
+}
